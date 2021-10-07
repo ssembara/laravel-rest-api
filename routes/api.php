@@ -18,16 +18,28 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::group([
-    'prefix' => 'auth'
-], function () {
+Route::group(['prefix' => 'auth'], function () {
     Route::post('signin', 'AuthController@signin');
     Route::post('signup', 'AuthController@signup');
 
-    Route::group([
-        'middleware' => 'auth:api'
-    ], function () {
+    Route::group(['middleware' => 'auth:api'], function () {
         Route::get('logout', 'AuthController@logout');
         Route::get('user', 'AuthController@user');
+    });
+});
+
+Route::group(['middleware' => 'auth:api'], function () {
+    Route::group(['prefix' => 'books'], function () { 
+        Route::get('/', 'BookController@index');
+        Route::post('/', 'BookController@store');
+        Route::get('/{id}', 'BookController@show');
+    });
+
+    Route::group(['prefix' => 'authors'], function () { 
+        Route::get('/', 'AuthorController@index');
+        Route::post('/', 'AuthorController@store');
+        Route::get('/{author}', 'AuthorController@show');
+        Route::put('/{author}', 'AuthorController@update');
+        Route::delete('/{author}', 'AuthorController@destroy');
     });
 });
