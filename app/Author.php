@@ -14,7 +14,7 @@ class Author extends Model
     {
         return $this->belongsToMany(
             Book::class,
-            'author_has_books',
+            'author_has_book',
             'author_id',
             'book_id'
         );

@@ -33,6 +33,8 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::get('/', 'BookController@index');
         Route::post('/', 'BookController@store');
         Route::get('/{id}', 'BookController@show');
+        Route::put('/{author}', 'AuthorController@update');
+        Route::delete('/{author}', 'AuthorController@destroy');
     });
 
     Route::group(['prefix' => 'authors'], function () { 

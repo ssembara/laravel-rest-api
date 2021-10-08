@@ -13,7 +13,7 @@ class AuthorController extends Controller
     {
         $authors = Author::paginate($request->limit);
 
-        return response(['data' => new AuthorResource($authors), 'message' => 'Retrieved successfully'], 200);
+        return response(['author' => new AuthorResource($authors), 'message' => 'Retrieved successfully'], 200);
     }
 
     public function store(Request $request)
@@ -31,12 +31,12 @@ class AuthorController extends Controller
         $author->name = $request->name;
         $author->save();
 
-        return response(['data' => new AuthorResource($author), 'message' => 'Created successfully'], 201);
+        return response(['author' => new AuthorResource($author), 'message' => 'Created successfully'], 201);
     }
 
     public function show(Author $author)
     {
-        return response(['data' => new AuthorResource($author), 'message' => 'Retrieved successfully'], 200);
+        return response(['author' => new AuthorResource($author), 'message' => 'Retrieved successfully'], 200);
     }
 
     public function update(Author $author, Request $request)
@@ -51,7 +51,7 @@ class AuthorController extends Controller
         }
 
         $author->update($request->all());
-        return response(['data' => new AuthorResource($author), 'message' => 'Update successfully'], 200);
+        return response(['author' => new AuthorResource($author), 'message' => 'Update successfully'], 200);
     }
 
     public function destroy(Author $author)
