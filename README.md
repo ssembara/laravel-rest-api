@@ -1,10 +1,12 @@
 # Laravel Rest Api
-Created Rest API with Laravel 7. This project takes a book collection case study. The data needed is book and author data, 1 book has many authors, 1 author has many books
+Created Rest API with Laravel 7. 
+This project takes a book collection case study. 
+The data needed is book and author data, 1 book has many authors, 1 author has many books
 
 ## Database Design
 <div align='center'>
 
-![typescript-rest-api]()
+![typescript-rest-api](https://raw.githubusercontent.com/ssembara/laravel-rest-api/2-readme/Book%20ERD.jpg)
 
 </div>
 
