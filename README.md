@@ -37,5 +37,10 @@ The Route Book Management :
 | PUT  | /api/books/{author}     | Update |
 | DELETE  | /api/books/{author}     | Destroy |
 
+### Use Params :
+* Search by Title &#8594; ?title
+* Filter by Author &#8594; ?author
+* Pagination &#8594; ?limit 
+
 ## Dependency
 * [laravel/passport](https://laravel.com/docs/7.x/passport) &#8594; For OAuth based Token
