@@ -11,7 +11,13 @@ class AuthorController extends Controller
 {
     public function index(Request $request)
     {
-        $authors = Author::paginate($request->limit);
+        $authors = Author::orderBy('name', 'ASC');
+
+        if ($request->limit) {
+            $authors = $authors->paginate($request->limit);
+        } else {
+            $authors = $authors->get();
+        }
 
         return response(['author' => new AuthorResource($authors), 'message' => 'Retrieved successfully'], 200);
     }
